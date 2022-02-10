@@ -1,0 +1,33 @@
+
+.listMovie-content {
+    margin-bottom: 30px;
+}
+.listMovie-content .borderBottom-title{
+    margin-top: 15px;
+    border-top: 2.5px solid black;
+}
+.listMovie-content .listMovie-content-list .row .col-md-4 {
+    margin-top: 20px;
+}
+.listMovie-content .listMovie-content-list .row .col-md-4 a img{
+    width: 100%;
+}
+
+
+.movie-btn{
+    display: flex;
+    justify-content: space-between
+}
+@media only screen and (max-width: 767px) {
+    *{
+        font-size: 15px;
+    }
+    .movie-info {
+        margin-bottom: 10px;
+    }
+    .movie-info h4{
+        font-size: 15px;
+        font-weight: bold;
+
+    }
+}
