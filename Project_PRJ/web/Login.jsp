@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Login
-    Created on : Feb 13, 2022, 11:46:24 PM
+    Document   : Loginn
+    Created on : Mar 4, 2022, 10:28:29 PM
     Author     : Thuong
 --%>
 
@@ -9,27 +9,44 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/CtyleLogin.css" rel="stylesheet" type="text/css"/>
-        <title>Login</title>
+        <title>JSP Page</title>
+        <link href="css/Login.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-  	<div class="login">
-		<h2>Member login</h2>
-		<br>
-		<p>Email address</p>
-		<input class="user" type="text" placeholder="Enter email">
-		<br>
-		<p>Password</p>
-		<input class="pass" type="password" placeholder="Enter password">
-		<br>
-		<div class="check">
-			<input class="checkbox" type="checkbox" placeholder="Enter password"> Remember me
-		</div>
-		<br>
-                <button>Login</button> <button class="Singin"> Singin</button>
-		<br>
-		<a href="#">forgot password ?</a>
+       
+    <div class="main">
 
-	</div>
+        <div class="container">
+            <div class="signup-content">
+                <form method="POST" id="signup-form" class="signup-form">
+                    <h2>Sign up </h2>
+                    <!--<p class="desc">to get discount 10% when pre - order <span>“Batman Beyond”</span></p>-->
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="name" id="name" placeholder="User Name"/>
+                    </div>
+<!--                    <div class="form-group">
+                        <input type="email" class="form-input" name="email" id="email" placeholder="Email"/>
+                    </div>-->
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="password" id="password" placeholder="Password"/>
+                        <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" id="submit" class="form-submit submit" value="Sign up"/>
+                        <a href="#" class="submit-link submit">Sign in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
     </body>
 </html>
