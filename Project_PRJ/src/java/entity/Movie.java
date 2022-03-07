@@ -16,16 +16,16 @@ public class Movie {
     private  String MovieTitle;
     private String GenereID;
     private String DirectorID;
-    private Date date;
+    private Date ReleaseDate;
     public Movie() {
     }
 
-    public Movie(String MovieID, String MovieTitle, String GenereID, String DirectorID, Date date) {
+    public Movie(String MovieID, String MovieTitle, String GenereID, String DirectorID, Date ReleaseDate) {
         this.MovieID = MovieID;
         this.MovieTitle = MovieTitle;
         this.GenereID = GenereID;
         this.DirectorID = DirectorID;
-        this.date = date;
+        this.ReleaseDate = ReleaseDate;
     }
 
     public String getMovieID() {
@@ -60,17 +60,17 @@ public class Movie {
         this.DirectorID = DirectorID;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getReleaseDate() {
+        return ReleaseDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setReleaseDate(Date ReleaseDate) {
+        this.ReleaseDate = ReleaseDate;
     }
 
     @Override
     public String toString() {
-        return "Movie{" + "MovieID=" + MovieID + ", MovieTitle=" + MovieTitle + ", GenereID=" + GenereID + ", DirectorID=" + DirectorID + ", date=" + date + '}';
+        return "Movie{" + "MovieID=" + MovieID + ", MovieTitle=" + MovieTitle + ", GenereID=" + GenereID + ", DirectorID=" + DirectorID + ", ReleaseDate=" + ReleaseDate + '}';
     }
 
 

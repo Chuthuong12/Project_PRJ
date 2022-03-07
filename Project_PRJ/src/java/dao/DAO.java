@@ -19,31 +19,25 @@ public class DAO {
     PreparedStatement ps = null; // nhan cau lenh
     ResultSet rs = null; // tra kq
 
-    public java.util.List<Movie> getAllMovie() {
-        java.util.List<Movie> list = new ArrayList<>();
+    public List<Movie> getAllMovie() {
+        List<Movie> list = new ArrayList<>();
         String query = "select * from Movie";
         try {
             conn = new Dbcontext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Movie(rs.getString(1),
-                         rs.getString(2),
-                         rs.getString(3),
-                         rs.getString(4),
-                         rs.getDate(5)));
+                list.add(new Movie(rs.getString("MovieID"),
+                         rs.getString("MovieTitle"),
+                         rs.getString("GenereID"),
+                         rs.getString("DirectorID"),
+                         rs.getDate("ReleaseDate")));
             }
         } catch (Exception e) {
         }
         return list;
     }
 
-//    public  Account login(String user, String pass){
-//       String query = "select * from SELECT * FROm LoginUser \n" 
-//               +"where UserName =? \n" 
-//               +"and PassWord = ? " 
-//    return null;
-//}
     public static void main(String[] args) {
         DAO dao = new DAO();
         List<Movie> List = dao.getAllMovie();
