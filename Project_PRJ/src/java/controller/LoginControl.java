@@ -6,10 +6,8 @@
 package controller;
 
 import dao.DAO;
-import entity.Movie;
+import entity.Account;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thuong
  */
-@WebServlet(name = "HomeControl", urlPatterns = {"/Home"})
-public class HomeControl extends HttpServlet {
+@WebServlet(name = "LoginControl", urlPatterns = {"/Login"})
+public class LoginControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,14 +33,19 @@ public class HomeControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        //get data from dao
-        DAO dao = new DAO();
-        List<Movie> List = dao.getAllMovie();
-        
-        request.setAttribute("ListM", List);
-        request.getRequestDispatcher("PhimSapChieu.jsp").forward(request, response);
-        
-        
+       String user = request.getParameter("user");
+       String pass = request.getParameter("pass");
+       
+       DAO dao = new DAO();
+       Account a = dao.login(user, pass);
+       if(a==null){
+           request.setAttribute("mess", "Wrong UserName or Password");
+           request.getRequestDispatcher("Login.jsp").forward(request, response);
+       } else{
+        response.sendRedirect("HomePage.jsp");
+       }
+       
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -84,4 +87,4 @@ public class HomeControl extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-}   
+}

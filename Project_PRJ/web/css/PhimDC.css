@@ -7,7 +7,6 @@ and open the template in the editor.
     Created on : Mar 5, 2022, 10:59:50 AM
     Author     : Thuong
 */
-
 .listMovie-content {
     margin-bottom: 30px;
 }
@@ -89,4 +88,7 @@ nav .menu li a{
   max-height:95px;
   width: auto;
   height: auto;
+}
+.movie-info{
+    border: 100px;
 }

@@ -11,10 +11,20 @@ package entity;
  */
 public class Account {
     private int id;
-    private String user;
-    private String pass;
+    private String Username;
+    private String password;
+    private int isSell;
+    private int isAdmin;
 
     public Account() {
+    }
+
+    public Account(int id, String Username, String password, int isSell, int isAdmin) {
+        this.id = id;
+        this.Username = Username;
+        this.password = password;
+        this.isSell = isSell;
+        this.isAdmin = isAdmin;
     }
 
     public int getId() {
@@ -25,32 +35,43 @@ public class Account {
         this.id = id;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return Username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String Username) {
+        this.Username = Username;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public Account(int id, String user, String pass) {
-        this.id = id;
-        this.user = user;
-        this.pass = pass;
+    public int getIsSell() {
+        return isSell;
     }
-    // in dl
+
+    public void setIsSell(int isSell) {
+        this.isSell = isSell;
+    }
+
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
     @Override
     public String toString() {
-        return "Account{" + "id=" + id + ", user=" + user + ", pass=" + pass + '}';
+        return "Account{" + "id=" + id + ", Username=" + Username + ", password=" + password + ", isSell=" + isSell + ", isAdmin=" + isAdmin + '}';
     }
+   
     
    
 }

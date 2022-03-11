@@ -5,11 +5,8 @@
  */
 package controller;
 
-import dao.DAO;
-import entity.Movie;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thuong
  */
-@WebServlet(name = "HomeControl", urlPatterns = {"/Home"})
-public class HomeControl extends HttpServlet {
+@WebServlet(name = "SearchControl", urlPatterns = {"/Search"})
+public class SearchControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,14 +32,7 @@ public class HomeControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        //get data from dao
-        DAO dao = new DAO();
-        List<Movie> List = dao.getAllMovie();
-        
-        request.setAttribute("ListM", List);
-        request.getRequestDispatcher("PhimSapChieu.jsp").forward(request, response);
-        
-        
+     String txtSearch = request.getParameter("txt");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -84,4 +74,4 @@ public class HomeControl extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-}   
+}

@@ -18,28 +18,34 @@ Author     : Thuong
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="https://kit.fontawesome.com/cc64770667.js" crossorigin="anonymous"></script>
     </head>
     <body>
     <nav>
        
-<!--        <a href="#" class="logo">
+        <a href="#" class="logo">
             <img src="images/logo.png"/>
-        </a>-->
+        </a>
        
         <input type="checkbox" class="menu-btn" id="menu-btn"/>
-        <label class="menu-icon" for="menu-btn">
+        <label class="menu-icon" for="menu-btn">    
             <span class="nav-icon"></span>
         </label>
         <ul class="menu">
+             <i class="fa-solid fa-house"></i>
             <li><a href="HomePage.jsp">Home</a></li>
+           <i class="fa-solid fa-seedling"></i>
             <li><a href="PhimDangChieu.jsp">Phim Đang Chiếu</a></li>
+            <i class="fa-solid fa-apple-whole"></i>
             <li><a href="PhimSapChieu.jsp">Phim Sắp Chiếu</a></li>
+            <i class="fa-solid fa-user"></i>
             <li><a href="Login.jsp">Login/Singin</a></li>
         </ul>
         <div class="search">
             <input type="text" placeholder="Find Your Favorite Movies"/>
-           
-            <i class="fas fa-search"></i>
+            <button type="submit">
+                 <i class="fas fa-search"></i>
+            </button>
         </div>
     </nav>
     <section id="main">
@@ -279,12 +285,8 @@ Author     : Thuong
     <footer>
         <p>ProJect PRJ </p>
         <p>Chu Minh Thương</p>
-    </footer>
-        <div class="ggmap">
-            <td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.4854095333817!2d105.52487025132929!3d21.013254993612865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345b465a4e65fb%3A0xaae6040cfabe8fe!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBGUFQ!5e0!3m2!1svi!2s!4v1645764940610!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></td> 
-            <td><img src="https://vcdn-vnexpress.vnecdn.net/2021/02/03/Untitled-6057-1612360667.png" class="fpt" </td>
-        </div>
-        
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.4854095333817!2d105.52487025132929!3d21.013254993612865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345b465a4e65fb%3A0xaae6040cfabe8fe!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBGUFQ!5e0!3m2!1svi!2s!4v1645764940610!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </footer>     
    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 
 </body>
