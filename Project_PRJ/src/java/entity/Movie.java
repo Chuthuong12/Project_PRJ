@@ -17,18 +17,20 @@ public class Movie {
     private Date ReleaseDate;
     private int price;
     private String img;
+    private int time;
     private String GenereName;
     private String DirectorID;
     
     public Movie() {
     }
 
-    public Movie(String MovieID, String MovieTitle, Date ReleaseDate, int price, String img, String GenereName, String DirectorID) {
+    public Movie(String MovieID, String MovieTitle, Date ReleaseDate, int price, String img, int time, String GenereName, String DirectorID) {
         this.MovieID = MovieID;
         this.MovieTitle = MovieTitle;
         this.ReleaseDate = ReleaseDate;
         this.price = price;
         this.img = img;
+        this.time = time;
         this.GenereName = GenereName;
         this.DirectorID = DirectorID;
     }
@@ -73,6 +75,14 @@ public class Movie {
         this.img = img;
     }
 
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
     public String getGenereName() {
         return GenereName;
     }
@@ -91,8 +101,10 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie{" + "MovieID=" + MovieID + ", MovieTitle=" + MovieTitle + ", ReleaseDate=" + ReleaseDate + ", price=" + price + ", img=" + img + ", GenereName=" + GenereName + ", DirectorID=" + DirectorID + '}';
+        return "Movie{" + "MovieID=" + MovieID + ", MovieTitle=" + MovieTitle + ", ReleaseDate=" + ReleaseDate + ", price=" + price + ", img=" + img + ", time=" + time + ", GenereName=" + GenereName + ", DirectorID=" + DirectorID + '}';
     }
+
+    
 
 
     

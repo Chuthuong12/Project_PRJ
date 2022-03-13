@@ -81,7 +81,7 @@ public class SingupControl extends HttpServlet {
            if(ac==null){
                // dc tao tk
                dao.singup(user, re_pass);
-               response.sendRedirect("HomePage.jsp");
+               response.sendRedirect("Home.jsp");
            }else{
                 // day ve login
            response.sendRedirect("Login.jsp");

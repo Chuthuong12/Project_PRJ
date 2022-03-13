@@ -40,7 +40,7 @@
             </c:if>
             
             <c:if test="${sessionScope.acc.isSell==1}">
-            <li><a href=""> Manager Film</a></li>
+            <li><a href="ManagerFilm.jsp"> Manager Film</a></li>
             </c:if>
             
             <i class="fa-solid fa-seedling"></i>

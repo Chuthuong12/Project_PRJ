@@ -3,6 +3,7 @@
     Created on : Mar 4, 2022, 10:28:29 PM
     Author     : Thuong
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -42,7 +43,7 @@
                 <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> Sign up New Account</button>
             </form>
 
-            <form action="Signup" method="post" class="form-signup"> 
+            <form action="Singup" method="post" class="form-signup"> 
                 <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign up</h1>
                 <input name="user" type="text" id="user-name" class="form-control" placeholder="User name" required="" autofocus="">
                 <input name="pass" type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">

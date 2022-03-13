@@ -8,6 +8,18 @@
         <servlet-name>LogoutControl</servlet-name>
         <servlet-class>controller.LogoutControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManagerControl</servlet-name>
+        <servlet-class>controller.ManagerControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteControl</servlet-name>
+        <servlet-class>controller.DeleteControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadControl</servlet-name>
+        <servlet-class>controller.LoadControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SingupControl</servlet-name>
         <url-pattern>/Singup</url-pattern>
@@ -39,6 +51,18 @@
     <servlet-mapping>
         <servlet-name>LogoutControl</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagerControl</servlet-name>
+        <url-pattern>/Manager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteControl</servlet-name>
+        <url-pattern>/Delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadControl</servlet-name>
+        <url-pattern>/LoadFilm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

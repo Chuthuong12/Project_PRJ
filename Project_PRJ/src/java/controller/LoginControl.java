@@ -45,6 +45,7 @@ public class LoginControl extends HttpServlet {
        } else{
            HttpSession sesion = request.getSession();
            sesion.setAttribute("acc", a);
+           sesion.setMaxInactiveInterval(1000); // phiên làm việc tồn tại 1000s
            response.sendRedirect("Home.jsp");
        }
        
