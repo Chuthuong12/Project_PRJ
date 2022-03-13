@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>SingupControl</servlet-name>
+        <servlet-class>controller.SingupControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutControl</servlet-name>
+        <servlet-class>controller.LogoutControl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SingupControl</servlet-name>
+        <url-pattern>/Singup</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>HomeControl</servlet-name>
+        <servlet-class>controller.HomeControl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeControl</servlet-name>
+        <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginControl</servlet-name>
+        <servlet-class>controller.LoginControl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginControl</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SearchControl</servlet-name>
+        <servlet-class>controller.LoginControl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchControl</servlet-name>
+        <url-pattern>/Search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutControl</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

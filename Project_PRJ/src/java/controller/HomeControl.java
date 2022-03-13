@@ -40,7 +40,7 @@ public class HomeControl extends HttpServlet {
         List<Movie> List = dao.getAllMovie();
         
         request.setAttribute("ListM", List);
-        request.getRequestDispatcher("PhimSapChieu.jsp").forward(request, response);
+        request.getRequestDispatcher("Home.jsp").forward(request, response);
         
         
     }

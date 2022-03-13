@@ -1,26 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controller;
 
 import dao.DAO;
 import entity.Account;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Thuong
  */
-@WebServlet(name = "LoginControl", urlPatterns = {"/Login"})
-public class LoginControl extends HttpServlet {
+public class SingupControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,21 +28,18 @@ public class LoginControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       String user = request.getParameter("user");
-       String pass = request.getParameter("pass");
-       
-       DAO dao = new DAO();
-       Account a = dao.login(user, pass);
-       if(a==null){
-           request.setAttribute("mess", "Wrong UserName or Password");
-           request.getRequestDispatcher("Login.jsp").forward(request, response);
-       } else{
-           HttpSession sesion = request.getSession();
-           sesion.setAttribute("acc", a);
-           response.sendRedirect("Home.jsp");
-       }
-       
-       
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet SingupControl</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet SingupControl at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -77,7 +68,25 @@ public class LoginControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       String user = request.getParameter("user");
+       String pass = request.getParameter("pass");
+       String re_pass = request.getParameter("repass");
+        
+       if(!pass.equals(re_pass)){
+           response.sendRedirect("Login.jsp");
+       } else{
+           DAO dao = new DAO();
+           Account ac= dao.CheckAccountExit(user);
+            
+           if(ac==null){
+               // dc tao tk
+               dao.singup(user, re_pass);
+               response.sendRedirect("HomePage.jsp");
+           }else{
+                // day ve login
+           response.sendRedirect("Login.jsp");
+           }
+       }
     }
 
     /**
@@ -88,6 +97,6 @@ public class LoginControl extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }// </editor-fol
 
 }

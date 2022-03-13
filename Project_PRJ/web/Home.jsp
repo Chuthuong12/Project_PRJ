@@ -1,9 +1,10 @@
 <%-- 
-Document   : HomePage
-Created on : Feb 13, 2022, 11:18:31 PM
-Author     : Thuong
+    Document   : Home
+    Created on : Mar 12, 2022, 3:50:24 PM
+    Author     : Thuong
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,11 +17,13 @@ Author     : Thuong
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <link href="css/HomePage.css" rel="stylesheet" type="text/css"/>
+        <link href="css/Phimsc2.css" rel="stylesheet" type="text/css"/>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/cc64770667.js" crossorigin="anonymous"></script>
     </head>
-    <body>
+      <body>
     <nav>
        
         <a href="#" class="logo">
@@ -32,14 +35,28 @@ Author     : Thuong
             <span class="nav-icon"></span>
         </label>
         <ul class="menu">
-             <i class="fa-solid fa-house"></i>
-            <li><a href="HomePage.jsp">Home</a></li>
-           <i class="fa-solid fa-seedling"></i>
-            <li><a href="PhimDangChieu.jsp">Phim Đang Chiếu</a></li>
-            <i class="fa-solid fa-apple-whole"></i>
-            <li><a href="PhimSapChieu.jsp">Phim Sắp Chiếu</a></li>
-            <i class="fa-solid fa-user"></i>
-            <li><a href="Login.jsp">Login/Singin</a></li>
+            <c:if test="${sessionScope.acc.isAdmin==1}">
+            <li><a href=""> Manager Account</a></li>
+            </c:if>
+            
+            <c:if test="${sessionScope.acc.isSell==1}">
+            <li><a href=""> Manager Film</a></li>
+            </c:if>
+            
+            <i class="fa-solid fa-seedling"></i>
+            <li><a href="PhimDangChieu.jsp">Mua Vé</a></li>
+            
+            <c:if test="${sessionScope.acc==null}">
+            <li>
+                <a href="Login.jsp">Login/Singin</a>
+            </li>
+            </c:if>
+            
+            <c:if test="${sessionScope.acc!=null}">
+            <li><a href="#">Hello ${sessionScope.acc.username}</a></li>
+            <li><a href="Logout">Logout</a></li>
+            </c:if>
+            
         </ul>
         <div class="search">
             <input type="text" placeholder="Find Your Favorite Movies"/>

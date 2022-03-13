@@ -27,42 +27,18 @@
     <body>
         <nav>
             <ul class="menu">
-                <i class="fa-solid fa-house"></i>
-                <li><a href="HomePage.jsp">Home</a></li>
-                <i class="fa-solid fa-seedling"></i>
-                <li><a href="PhimDangChieu.jsp">Phim Đang Chiếu</a></li>
-                <i class="fa-solid fa-apple-whole"></i>
-                <li><a href="PhimSapChieu.jsp">Phim Sắp Chiếu</a></li>
+                <a>
+                    <i class="fa-solid fa-house"></i> </a>
+                <li><a href="Home.jsp">Home</a></li>
+                <!--<i class="fa-solid fa-seedling"></i>-->
+<!--                <li><a href="PhimDangChieu.jsp">Phim Đang Chiếu</a></li>
+                <i class="fa-solid fa-apple-whole"></i>-->
+                <!--<li><a href="PhimSapChieu.jsp">Mua vé</a></li>-->
                 <i class="fa-solid fa-user"></i>
                 <li><a href="Login.jsp">Login/Singin</a></li>
             </ul>
         </nav>
-        <!--            <div class="menubar">
-                        <ul>
-                        <a href="">
-                            <img src="images/fav icon.png" alt=""/>
-                        </a>
-                        <a href="listMovie.html">
-                        <img src="../img/header-logo-2.png" alt="">
-                        </a>
-                        <a href="">
-                        <img src="../img/header-logo-3.png" alt="">
-                        </a>
-                        <a href="">
-                        <img src="../img/header-logo-4.png" alt="">
-                        </a>
-                        <a href="">
-                        <img src="../img/header-logo-5.png" alt="">
-                        </a>
-                        <a href="">
-                        <img src="../img/header-logo-6.png" alt="">
-                        </a>
-                        <a href="">
-                        <img src="../img/header-logo-7.png" alt="">
-                        </a>
-                        </ul>
-                        <hr>
-                        </div>-->
+      
         <!-- End MenuBar -->
         <!-- Content -->
         <div class="listMovie-content">
@@ -80,14 +56,14 @@
                             <img src="images/l-8.jpg"  alt="" class="imgg"/>
                         </a>
                         <div class="movie-info">
-                            <h4>Venom</h4>
+                            <h4 class="mt-4"">Venom</h4>
                             <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thể Loại:</span> <span>Hành động</span></div>
                             <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span>20/6/2021</span></div>
                             <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span>111 phút</span></div>
                         </div>
                         <div class="movie-btn">
-                            <button type="button" class="btn btn-danger">Mua Vé </button>
-                            <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
+                            <button type="button" class="btn btn-danger mt-4">Mua Vé </button>
+                            <button type="button" class="btn btn-outline-danger mt-4">Xem Chi Tiết</button>
                         </div>
                     </div>
                     <%--</c:forEach>--%>
@@ -96,14 +72,14 @@
                             <img src="images/l-7.jpg" alt=""class="imgg"/>
                         </a>
                         <div class="movie-info">
-                            <h4>Rouge One</h4>
+                            <h4 class="mt-4"">Rouge One</h4>
                             <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thể Loại:</span> <span>Tâm lý</span></div>
                             <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span>09/03/2022</span></div>
                             <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span>122 phút</span></div>
                         </div>
                         <div class="movie-btn">
-                            <button type="button" class="btn btn-danger">Mua Vé </button>
-                            <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
+                            <button type="button" class="btn btn-danger mt-4" >Mua Vé </button>
+                            <button type="button" class="btn btn-outline-danger mt-4">Xem Chi Tiết</button>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -112,14 +88,14 @@
                         </a>
 
                         <div class="movie-info">
-                            <h4>Star War</h4>
+                            <h4 class="mt-4">Star War</h4>
                             <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thể Loại:</span> <span>Khoa Học Viễn Tưởng</span></div>
                             <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span>09/03/2022</span></div>
                             <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span>133 phút</span></div>
                         </div>
                         <div class="movie-btn">
-                            <button type="button" class="btn btn-danger">Mua Vé </button>
-                            <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
+                            <button type="button" class="btn btn-danger mt-4">Mua Vé </button>
+                            <button type="button" class="btn btn-outline-danger mt-4">Xem Chi Tiết</button>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -127,7 +103,7 @@
                             <img src="images/l-5.jpg" alt="" class="imgg"/>
                         </a>
                         <div class="movie-info">
-                            <h4>CoCo</h4>
+                            <h4 class="mt-4">CoCo</h4>
                             <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thể Loại:</span> <span>Hoạt Hình</span></div>
                             <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span>09/03/2022</span></div>
                             <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span>90 phút</span></div>

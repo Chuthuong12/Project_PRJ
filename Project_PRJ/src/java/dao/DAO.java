@@ -28,11 +28,13 @@ public class DAO {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Movie(rs.getString("MovieID"),
-                        rs.getString("MovieTitle"),
-                        rs.getString("GenereID"),
-                        rs.getString("DirectorID"),
-                        rs.getDate("ReleaseDate")));
+                list.add(new Movie(rs.getString(1)
+                        ,rs.getString(2)
+                        ,rs.getDate(3)
+                        ,rs.getInt(4)
+                        ,rs.getString(5)
+                        ,rs.getString(6)
+                        ,rs.getString(7)));
             }
         } catch (Exception e) {
         }

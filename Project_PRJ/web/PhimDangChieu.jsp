@@ -4,6 +4,7 @@
     Author     : Thuong
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,26 +21,30 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-                <script src="https://kit.fontawesome.com/cc64770667.js" crossorigin="anonymous"></script>
-
+        <script src="https://kit.fontawesome.com/cc64770667.js" crossorigin="anonymous"></script>
+        <jsp:useBean id="o" class="dao.DAO" scope="request"></jsp:useBean>
     </head>
    <body>
         <nav>
          <ul class="menu">
              <i class="fa-solid fa-house"></i>
-            <li><a href="HomePage.jsp">Home</a></li>
-           <i class="fa-solid fa-seedling"></i>
-            <li><a href="PhimDangChieu.jsp">Phim Đang Chiếu</a></li>
-            <i class="fa-solid fa-apple-whole"></i>
-            <li><a href="PhimSapChieu.jsp">Phim Sắp Chiếu</a></li>
-            <i class="fa-solid fa-user"></i>
+            <li><a href="Home.jsp">Home</a></li>
+            <i class="fa-solid fa-seedling"></i>
+            <li><a href="PhimSapChieu.jsp">Mua Vé</a></li>
+            <c:if test="${sessionScope.acc==null}">
             <li><a href="Login.jsp">Login/Singin</a></li>
+            </c:if>
+            
+            <c:if test="${sessionScope.acc!=null}">
+            <li><a href="#">Hello ${sessionScope.acc.username}</a></li>
+            <li><a href="Logout">Logout</a></li>
+            </c:if>
         </ul>
             </nav>
             <div class="menubar">
                 <ul>
                 <a href="">
-                    <!--<img src="images/fav icon.png" alt=""/>-->
+                <i class="fa-solid fa-user"></i>
                 </a>
                 <a href="listMovie.html">
                 <img src="../img/header-logo-2.png" alt="">
@@ -73,140 +78,33 @@
                 <input type="text" placeholder="Find Your Favorite Movies"/>
                 <i class="fas fa-search"></i>
             </div>
-                         <div class="borderBottom-title"></div>
+                <div class="borderBottom-title"></div>
                 <div class="listMovie-content-list">
+                    <div class="col-sm-9">
                     <div class="row">
-                        <div class="col-md-4">
-                            <a href="">
-                                <img src="images/DC1.jpg" alt=""class="imgg"/>
-                            </a>
-                            <div class="movie-info">
-                                <h4>Furious 9</h4>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thể Loại:</span> <span>Hành động</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span>23/04/2022</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span>111 phút</span></div>
+                       <c:forEach items="${o.allMovie}" var="i">
+                            <div class="col-12 col-md-6 col-lg-3 mt-4">
+                                <div class="card">
+                                    <img style="height: 300px; width: 300px;" class="card-img-top" src="${i.img}" alt="Thêm Ảnh">
+                                    <div class="card-body">
+                                        <h4 class="card-title show_txt"><a href="#" title="View Product"><span>Tên phim: </span> ${i.movieTitle}</a> </h4>
+                                        <div class="card-text show_txt"><span>Ngày Mở Bán</span> <span>${i.releaseDate}</span> </div>
+                                        <div class="card-text show_txt "><span>Thời Lượng:</span> <span>${i.genereName}</span> <span>Phút</span></div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger btn-block mt-4"> <span> Giá: </span>${i.price} $</p>
+                                            </div>
+                                         
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="movie-btn">
-                                <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="">
-                                <img src="images/dc2.jpg" alt=""class="imgg"/>
-                            </a>
-                           
-                            <div class="movie-info">
-                                <h4>One Pice</h4>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thể Loại:</span> <span>Hoạt hình</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span>09/03/2022</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span>122 phút</span></div>
-                            </div>
-                            <div class="movie-btn">
-                                <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="">
-                                <img src="images/dc3.jpg" alt="" class="imgg"/>
-                            </a>
-
-                            <div class="movie-info">
-                                <h4>Sát thủ thợ máys</h4>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thể Loại:</span> <span>Hành động</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span>09/05/2022</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span>133 phút</span></div>
-                            </div>
-                            <div class="movie-btn">
-                                <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="">
-                                <img src="images/DC4.jpg" alt="" class="imgg"/>
-                            </a>
-                            <div class="movie-info">
-                                <h4>The Flash</h4>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thể Loại:</span> <span>Hành Động</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span>11/06/2022</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span>90 phút</span></div>
-                            </div>
-                            <div class="movie-btn">
-                                <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="">
-                                <img src="images/DC5.jpg" alt="" class="imgg"/>
-                            </a>
-                            <div class="movie-info">
-                                <h4>Sniper</h4>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thể Loại:</span> <span>Hành Động</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span>13/07/2022</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span>134 phút</span></div>
-                            </div>
-                            <div class="movie-btn">
-                                <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="">
-                                <img src="images/Dc6.jpg" alt="" class="imgg"/>
-                            </a>
-                            <div class="movie-info">
-                                <h4>Lính Bắn Tỉa</h4>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thể Loại:</span> <span>hành Động</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span>12/06/2022</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span>144 phút</span></div>
-                            </div>
-                            <div class="movie-btn">
-                                <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="">
-                                <img src="images/DC7.jpg" alt="" class="imgg"/>
-                            </a>
-                            <div class="movie-info">
-                                <h4>War </h4>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thể Loại:</span> <span>Hành Động</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span>21/03/2022</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span>155 phút</span></div>
-                            </div>
-                            <div class="movie-btn">
-                                <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="">
-                                <img src="images/DC8.jpg" alt="" class="imgg"/>
-                            </a>
-                            <div class="movie-info">
-                                <h4>Bố Già </h4>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thể Loại:</span> <span>Hài Kịch</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span>22/03/2022</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span>155 phút</span></div>
-                            </div>
-                            <div class="movie-btn">
-                                <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="">
-                                <img src="images/DC9.jpg" alt="" class="imgg"/>
-                            </a>
-                            <div class="movie-info">
-                                <h4>Dracula </h4>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thể Loại:</span> <span>hành Động</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span>21/03/2022</span></div>
-                                <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span>155 phút</span></div>
-                            </div>
-                            <div class="movie-btn">
-                                <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
+                </div>
             </div>
+
             <!-- End Content 
               Footer -->
             <div class="footer">

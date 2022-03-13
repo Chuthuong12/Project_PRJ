@@ -14,18 +14,23 @@ import java.util.Date;
 public class Movie {
     private String MovieID;
     private  String MovieTitle;
-    private String GenereID;
-    private String DirectorID;
     private Date ReleaseDate;
+    private int price;
+    private String img;
+    private String GenereName;
+    private String DirectorID;
+    
     public Movie() {
     }
 
-    public Movie(String MovieID, String MovieTitle, String GenereID, String DirectorID, Date ReleaseDate) {
+    public Movie(String MovieID, String MovieTitle, Date ReleaseDate, int price, String img, String GenereName, String DirectorID) {
         this.MovieID = MovieID;
         this.MovieTitle = MovieTitle;
-        this.GenereID = GenereID;
-        this.DirectorID = DirectorID;
         this.ReleaseDate = ReleaseDate;
+        this.price = price;
+        this.img = img;
+        this.GenereName = GenereName;
+        this.DirectorID = DirectorID;
     }
 
     public String getMovieID() {
@@ -44,12 +49,36 @@ public class Movie {
         this.MovieTitle = MovieTitle;
     }
 
-    public String getGenereID() {
-        return GenereID;
+    public Date getReleaseDate() {
+        return ReleaseDate;
     }
 
-    public void setGenereID(String GenereID) {
-        this.GenereID = GenereID;
+    public void setReleaseDate(Date ReleaseDate) {
+        this.ReleaseDate = ReleaseDate;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public String getGenereName() {
+        return GenereName;
+    }
+
+    public void setGenereName(String GenereName) {
+        this.GenereName = GenereName;
     }
 
     public String getDirectorID() {
@@ -60,20 +89,10 @@ public class Movie {
         this.DirectorID = DirectorID;
     }
 
-    public Date getReleaseDate() {
-        return ReleaseDate;
-    }
-
-    public void setReleaseDate(Date ReleaseDate) {
-        this.ReleaseDate = ReleaseDate;
-    }
-
     @Override
     public String toString() {
-        return "Movie{" + "MovieID=" + MovieID + ", MovieTitle=" + MovieTitle + ", GenereID=" + GenereID + ", DirectorID=" + DirectorID + ", ReleaseDate=" + ReleaseDate + '}';
+        return "Movie{" + "MovieID=" + MovieID + ", MovieTitle=" + MovieTitle + ", ReleaseDate=" + ReleaseDate + ", price=" + price + ", img=" + img + ", GenereName=" + GenereName + ", DirectorID=" + DirectorID + '}';
     }
-
-
 
 
     

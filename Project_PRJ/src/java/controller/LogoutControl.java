@@ -5,21 +5,19 @@
  */
 package controller;
 
-import dao.DAO;
-import entity.Account;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Thuong
  */
-@WebServlet(name = "SignupControl", urlPatterns = {"/Signup"})
-public class SignupControl extends HttpServlet {
+public class LogoutControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,25 +31,9 @@ public class SignupControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       String user = request.getParameter("user");
-       String pass = request.getParameter("pass");
-       String re_pass = request.getParameter("repass");
-        
-       if(!pass.equals(re_pass)){
-           response.sendRedirect("Login.jsp");
-       } else{
-           DAO dao = new DAO();
-           Account ac= dao.CheckAccountExit(user);
-            
-           if(ac==null){
-               // dc tao tk
-               dao.singup(user, re_pass);
-               response.sendRedirect("Home");
-           }else{
-                // day ve login
-           response.sendRedirect("Login.jsp");
-           }
-       }
+        HttpSession session = request.getSession();
+        session.removeAttribute("acc");
+        response.sendRedirect("Home");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
