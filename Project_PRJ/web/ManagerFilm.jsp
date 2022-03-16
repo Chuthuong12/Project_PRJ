@@ -22,6 +22,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="css/manager.css" rel="stylesheet" type="text/css"/>
         <jsp:useBean id="o" class="dao.DAO" scope="request"></jsp:useBean>
+        <%
+            String id1 = (String)request.getAttribute("id");
+        %>
     </head>
             <style>
             img{
@@ -38,7 +41,7 @@
                             <h2>Manage <b>Film</b></h2>
                         </div>
                         <div class="col-sm-6">
-                            <a href=dEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Film</span></a>
+                            <a href=#addEmployeeModal  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Film</span></a>
                             <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
                         </div>
                     </div>
@@ -114,37 +117,54 @@
                             <h4 class="modal-title">Add Film</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
-                        <div class="modal-body">					
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>MovieID</label>
+                                <input  name="MovieID" type="text" class="form-control" required>
+                            </div>
                             <div class="form-group">
                                 <label>movieTitle</label>
-                                <input name="movieTitle" type="text" class="form-control" required>
+                                <input name="MovieTitle" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>releaseDate</label>
-                                <input name="releaseDate" type="text" class="form-control" required>
+                                <input name="ReleaseDate" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>price</label>
                                 <input name="price" type="text" class="form-control" required>
                             </div>
-                            <div class="form-group">
+                             <div class="form-group">
                                 <label>image</label>
-                                <textarea name="img" class="form-control" required></textarea>
+                                <input name="img" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
+                                <label>Thời gian</label>
+                                <input name="time" type="text" class="form-control" required>
+                            </div>
+                          
+                            <div class="form-group">
+                                <label>genereName</label>
+                                <input name="GenereName" type="text" class="form-control" required>
+                            </div>
+                          
+                            <div class="form-group">
+                                <label>directorID</label>
+                                <input name="GirectorID" type="text" class="form-control" required>
+                            </div>
+                          
+
+<!--                           
+                             <div class="form-group">
                                 <label>genereName</label>
                                 <textarea name="genereName" class="form-control" required></textarea>
                             </div>
-<!--                            <div class="form-group">
+                            <div class="form-group">
                                 <label>directorID</label>
                                 <textarea name="directorID" class="form-control" required></textarea>
                             </div>-->
                             <div class="form-group">
-                                <label>Thời gian</label>
-                                <textarea name="time" class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>AAA</label>
+                                <!--<label>AAA</label>-->
 <!--                                <select name="category" class="form-select" aria-label="Default select example">
                                     
                                 </select>-->
@@ -163,29 +183,50 @@
         <div id="editEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form>
+                    <form action="edit" method="post">
                         <div class="modal-header">						
                             <h4 class="modal-title">Edit Employee</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
-                        <div class="modal-body">					
+                       <c:forEach items="${ListM}" var="i">
+                      
+                        <div class="modal-body"  >					
                             <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" class="form-control" required>
+                                <label>MovieID</label>
+                                <input value="${i.movieID}" type="MovieID" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" required>
+                                <label>movieTitle</label>
+                                <input value="${i.movieTitle}" type="movieTitle" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Address</label>
-                                <textarea class="form-control" required></textarea>
+                                <label>releaseDate</label>
+                                <input value="${i.releaseDate}" name="ReleaseDate" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Phone</label>
-                                <input type="text" class="form-control" required>
+                                <label>price</label>
+                                <input value="${i.price}" name="price" type="text" class="form-control" required>
+                            </div>
+                             <div class="form-group">
+                                <label>image</label>
+                                <input value="${i.img}" name="img" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Thời gian</label>
+                                <input value="${i.time}" name="time" type="text" class="form-control" required>
+                            </div>
+                          
+                            <div class="form-group">
+                                <label>genereName</label>
+                                <input value="${i.genereName}" name="GenereName" type="text" class="form-control" required>
+                            </div>
+                          
+                            <div class="form-group">
+                                <label>directorID</label>
+                                <input value="${i.directorID}" name="GirectorID" type="text" class="form-control" required>
                             </div>					
                         </div>
+                    </c:forEach>
                         <div class="modal-footer">
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                             <input type="submit" class="btn btn-info" value="Save">

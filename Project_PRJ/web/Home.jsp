@@ -18,7 +18,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <link href="css/HomePage.css" rel="stylesheet" type="text/css"/>
-        <link href="css/Phimsc2.css" rel="stylesheet" type="text/css"/>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/cc64770667.js" crossorigin="anonymous"></script>

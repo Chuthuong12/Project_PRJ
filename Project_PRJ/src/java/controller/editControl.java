@@ -7,8 +7,10 @@ package controller;
 
 import dao.DAO;
 import entity.Account;
+import entity.Movie;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +22,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Thuong
  */
-@WebServlet(name = "AddControl", urlPatterns = {"/add"})
-public class AddControl extends HttpServlet {
+@WebServlet(name = "editControl", urlPatterns = {"/edit"})
+public class editControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,9 +37,20 @@ public class AddControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-      
-       
-        
+           String tMovieID = request.getParameter("MovieID");
+            String tMovieTitle = request.getParameter("MovieTitle");
+            String tReleaseDate = request.getParameter("ReleaseDate");
+            int tprice = Integer.parseInt(request.getParameter("price"));
+            String timg = request.getParameter("img");
+            int ttime = Integer.parseInt(request.getParameter("time"));
+            String pGenereName = request.getParameter("GenereName");
+            String pDirectorID = request.getParameter("GirectorID");
+//            int sid = a.MovieID();
+
+            DAO dao = new DAO();
+            dao.editFilm(tMovieTitle, tReleaseDate, tprice, timg, ttime, pGenereName, pDirectorID, timg);
+               response.sendRedirect("ManagerControll");
+    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -66,21 +79,7 @@ public class AddControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String tmovieTitle = request.getParameter("movieTitle");
-       String treleaseDate = request.getParameter("releaseDate");
-       String tprice = request.getParameter("price");
-       String timage = request.getParameter("img");
-       String ttime = request.getParameter("time");
-//       String directorID = request.getParameter("directorID");
-       String pgenereName = request.getParameter("genereName");
-       
-        HttpSession session = request.getSession();
-        Account a = (Account)session.getAttribute("acc");
-        int sid = a.getId();
-        
-        DAO dao= new DAO();
-        dao.insertFilm(tmovieTitle, treleaseDate, sid, ttime, sid, pgenereName, sid);
-        response.sendRedirect("ManagerControll");
+        processRequest(request, response);
     }
 
     /**

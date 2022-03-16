@@ -5,8 +5,10 @@
  */
 package controller;
 
+import dao.DAO;
+import entity.Movie;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +34,14 @@ public class SearchControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String txtSearch = request.getParameter("txt");
+        String txtSearch = request.getParameter("txt"); // lay dl ng dung nhap vao
+        
+        DAO dao = new DAO();
+        List<Movie> list = dao.getMovies(txtSearch);
+        request.setAttribute("listM", list);
+        request.getRequestDispatcher("PhimDangChieu.jsp").forward(request, response);
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -7,6 +7,7 @@ package controller;
 
 import dao.DAO;
 import entity.Movie;
+import entity.GiamDoc;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -37,10 +38,11 @@ public class HomeControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         //get data from dao
         DAO dao = new DAO();
+//        List;
         List<Movie> List = dao.getAllMovie();
-        
+        List<GiamDoc> listt = dao.getAllGiamDocs();
         request.setAttribute("ListM", List);
-        request.setAttribute("Listp", List);
+        request.setAttribute("Listt", listt);
         request.setAttribute("Listc", List);
         request.getRequestDispatcher("Home.jsp").forward(request, response);
         

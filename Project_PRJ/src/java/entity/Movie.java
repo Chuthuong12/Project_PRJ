@@ -14,17 +14,17 @@ import java.util.Date;
 public class Movie {
     private String MovieID;
     private  String MovieTitle;
-    private Date ReleaseDate;
+    private String ReleaseDate;
     private int price;
     private String img;
     private int time;
     private String GenereName;
     private String DirectorID;
-    
+
     public Movie() {
     }
 
-    public Movie(String MovieID, String MovieTitle, Date ReleaseDate, int price, String img, int time, String GenereName, String DirectorID) {
+    public Movie(String MovieID, String MovieTitle, String ReleaseDate, int price, String img, int time, String GenereName, String DirectorID) {
         this.MovieID = MovieID;
         this.MovieTitle = MovieTitle;
         this.ReleaseDate = ReleaseDate;
@@ -51,11 +51,11 @@ public class Movie {
         this.MovieTitle = MovieTitle;
     }
 
-    public Date getReleaseDate() {
+    public String getReleaseDate() {
         return ReleaseDate;
     }
 
-    public void setReleaseDate(Date ReleaseDate) {
+    public void setReleaseDate(String ReleaseDate) {
         this.ReleaseDate = ReleaseDate;
     }
 
@@ -103,10 +103,5 @@ public class Movie {
     public String toString() {
         return "Movie{" + "MovieID=" + MovieID + ", MovieTitle=" + MovieTitle + ", ReleaseDate=" + ReleaseDate + ", price=" + price + ", img=" + img + ", time=" + time + ", GenereName=" + GenereName + ", DirectorID=" + DirectorID + '}';
     }
-
-    
-
-
-    
-    
+       
 }
